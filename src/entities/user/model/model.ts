@@ -8,16 +8,20 @@ export type LoginFormTypes = {
 export type User = Omit<LoginFormTypes, "password">;
 
 export const loginFx = createEffect<LoginFormTypes, User, Error>({
+  sid: "loginFx",
   handler: async (params) => {
     return new Promise<User>((resolve) =>
-      setTimeout(() => resolve({ email: params.email }), 3000)
+      setTimeout(() => resolve({ email: params.email }), 2000)
     );
   },
 });
 
-export const $user = createStore<User>({
-  email: "",
-});
+export const $user = createStore<User>(
+  {
+    email: "",
+  },
+  { sid: "$user" }
+);
 
 $user.on(loginFx.doneData, (_, payload) => payload);
 

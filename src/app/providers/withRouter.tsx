@@ -1,10 +1,15 @@
 import { Suspense } from "react";
-import { BrowserRouter } from "react-router-dom";
+import {
+  BrowserRouter,
+  unstable_HistoryRouter as HistoryRouter,
+} from "react-router-dom";
+
+import { history } from "@shared/router";
 
 export const withRouter = (component: () => React.ReactNode) => () => {
   return (
-    <BrowserRouter>
+    <HistoryRouter history={history}>
       <Suspense fallback="Loading...">{component()}</Suspense>
-    </BrowserRouter>
+    </HistoryRouter>
   );
 };

@@ -1,4 +1,4 @@
-import { Button, Heading, Stack } from "@chakra-ui/react";
+import { Box, Button, Heading, Stack } from "@chakra-ui/react";
 import { FormProvider, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useStore } from "effector-react";
@@ -29,14 +29,15 @@ export const Form = () => {
       <Heading color="#fff" mb="40px" as="h1">
         Авторизация
       </Heading>
-      <FormProvider {...formMethods}>
-        <Field name="email" label="Электронная почта" />
-        <Field type="password" name="password" label="Пароль" />
-      </FormProvider>
+      <Box w="100%" mb="20px">
+        <FormProvider {...formMethods}>
+          <Field name="email" label="Электронная почта" />
+          <Field type="password" name="password" label="Пароль" />
+        </FormProvider>
+      </Box>
       <Button
         isLoading={isLoading}
         disabled={isLoading}
-        mt="20px"
         type="submit"
         colorScheme="linkedin"
         variant="solid"

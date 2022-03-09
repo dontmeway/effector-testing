@@ -9,7 +9,8 @@
     "build:prod": "env-cmd -e prod tsc && vite build",
     "preview:prod": "env-cmd -e prod vite preview",
     "analyze": "source-map-explorer 'build/static/js/*.js'",
-    "lint": "tsc --noEmit && eslint 'src/**/*.ts{,x}' --fix"
+    "lint": "tsc --noEmit && eslint 'src/**/*.ts{,x}' --fix",
+    "test": "jest"
   },
   "dependencies": {
     "@chakra-ui/react": "^1.8.6",
@@ -26,6 +27,7 @@
     "effector-react": "^22.0.6",
     "env-cmd": "^10.1.0",
     "framer-motion": "^6",
+    "history": "^5.3.0",
     "i18next": "^21.6.12",
     "query-string": "^7.1.1",
     "react": "^17.0.2",
@@ -50,8 +52,11 @@
     "eslint-config-airbnb-typescript-prettier": "^5.0.0",
     "eslint-import-resolver-typescript": "^2.5.0",
     "eslint-plugin-effector": "^0.6.0",
+    "jest": "^27.5.1",
     "prettier": "^2.5.1",
     "source-map-explorer": "^2.5.2",
+    "ts-jest": "^27.1.3",
+    "ts-node": "^10.7.0",
     "vite-tsconfig-paths": "^3.4.1"
   },
   "browserslist": {
